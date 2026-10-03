@@ -1,0 +1,16 @@
+[
+  {
+    "misconception_id": "M02",
+    "misconception": "Integer vs Floating-Point Division",
+    "explanation": "Computers keep integers (whole numbers like 7) and floating-point numbers (numbers with a fractional part like 3.5) as different kinds of values, and division can behave differently depending on which kind you use. Integer division asks 'how many whole times does the divisor fit?' and throws away the remainder, so 7 divided by 2 gives 3 remainder 1. Floating-point division keeps the fractional part, so 7 divided by 2 gives 3.5. Which behaviour you get depends on the language and the operator: some languages divide two integers with integer division by default, while others (such as Python) use separate operators for each kind.",
+    "example": "# Python-style example\nprint(7 / 2)    # 3.5  -> floating-point division keeps the fraction\nprint(7 // 2)   # 3    -> integer (floor) division drops the fraction\nprint(7 % 2)    # 1    -> the remainder that integer division discarded\n\n# In languages like C or Java, 7 / 2 with two integer operands gives 3,\n# while 7.0 / 2 gives 3.5.",
+    "hint": "Look at the operator and at the types of both operands. Ask yourself: does this division keep the fractional part, or does it only count whole times the divisor fits? Then work the result out by hand before running the code.",
+    "common_error": "Expecting 7 / 2 to give 3.5 in a language where both operands are integers (it gives 3), or expecting 7 // 2 to give 3.5 when it deliberately drops the fraction. Another typical slip is averaging whole numbers with integer division and getting a truncated, wrong average.",
+    "follow_up_questions": [
+      "What is the result of 9 // 4, and what is the result of 9 / 4? Explain why they differ.",
+      "A program stores total = 17 and count = 5 and computes total // count. What value does it get, and what would you change to get 3.4?",
+      "You want to split 25 students into groups of 4. Which operation tells you how many full groups you can make, and which tells you how many students are left over?",
+      "Without running it, predict the output of print(10 / 5) and print(10 // 5). Are the two values exactly the same kind of number? Why or why not?"
+    ]
+  }
+]
