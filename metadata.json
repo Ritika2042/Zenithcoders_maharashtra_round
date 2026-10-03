@@ -1,0 +1,6 @@
+{
+  "name": "Python CS1 Misconceptions Workbench (v1.0 Frozen Taxonomy)",
+  "description": "Research annotation studio, validator, and benchmark dataset explorer for the frozen M01-M08 Python student misconception taxonomy.",
+  "requestFramePermissions": [],
+  "majorCapabilities": ["MAJOR_CAPABILITY_SERVER_SIDE_GEMINI_API"]
+}
