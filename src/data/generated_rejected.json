@@ -1,0 +1,60 @@
+{
+  "rejected": [
+    {
+      "batch": "batch3",
+      "reason_codes": [
+        "near_duplicate"
+      ],
+      "reason": "same code/question as m04_02 (GP-0017, batch1), same misconception_id, same student_answer, reasoning similarity 0.78",
+      "duplicate_of_id": "m04_02",
+      "sample": {
+        "id": "gen_M04_05",
+        "sample_id": "RL-GEN-020",
+        "question_group": "and_or_combination",
+        "concept": "and/or precedence",
+        "question_format": "predict_output",
+        "question": "What does this expression evaluate to?\n\nprint(True or False and False)",
+        "correct_answer": "True",
+        "student_answer": "False",
+        "student_reasoning": "Left to right: True or False gives True, and then True and False is False. So the final is False.",
+        "answer_correct": false,
+        "misconception_id": "M04",
+        "misconception_variant": "logical_ops_left_to_right",
+        "secondary_misconception_ids": [],
+        "evidence_basis": "Student evaluates 'or' before 'and' purely left to right.",
+        "annotator_rationale": "and has higher precedence than or; student ignores precedence.",
+        "error_type": "conceptual",
+        "source": "claude_generated",
+        "split": "generated_pool"
+      }
+    },
+    {
+      "batch": "batch4",
+      "reason_codes": [
+        "exact_duplicate_question"
+      ],
+      "reason": "question text identical (ignoring whitespace/case) to m04_b2_01 (GP-0066, batch2)",
+      "duplicate_of_id": "m04_b2_01",
+      "sample": {
+        "id": "gen2_M04_01",
+        "sample_id": "RL-GEN2-016",
+        "question_group": "add_subtract_same_level",
+        "concept": "+ and - precedence",
+        "question_format": "predict_output",
+        "question": "What does this print?\n\nprint(10 - 3 + 2)",
+        "correct_answer": "9",
+        "student_answer": "5",
+        "student_reasoning": "PEMDAS, A comes before S so addition goes first. 3 + 2 = 5 then 10 - 5 = 5.",
+        "answer_correct": false,
+        "misconception_id": "M04",
+        "misconception_variant": "addition_before_subtraction",
+        "secondary_misconception_ids": [],
+        "evidence_basis": "Student says addition goes before subtraction because A comes before S in PEMDAS.",
+        "annotator_rationale": "+ and - have equal precedence and associate left to right.",
+        "error_type": "conceptual",
+        "source": "claude_generated",
+        "split": "generated_pool"
+      }
+    }
+  ]
+}

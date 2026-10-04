@@ -10,7 +10,7 @@ const __dirname = path.dirname(__filename);
 const app = express();
 const PORT = process.env.PORT ? parseInt(process.env.PORT, 10) : 3000;
 
-app.use(express.json());
+app.use(express.json({ limit: '1mb' }));
 
 interface ResolvedPython {
   cmd: string;
@@ -100,6 +100,7 @@ function initPythonBridge() {
       cwd: __dirname,
       stdio: ['pipe', 'pipe', 'pipe'],
       shell: py.useShell,
+      env: { ...process.env, PYTHONIOENCODING: 'utf-8' },
     });
   } catch (err: any) {
     bridgeError = `Failed to spawn Python process: ${err.message}`;
@@ -222,19 +223,14 @@ app.get('/api/relearn/health', (_req, res) => {
 
 app.post('/api/relearn/diagnose', async (req, res) => {
   try {
-    const { question, correct_answer, student_answer, student_reasoning } = req.body;
-    console.log('[API /diagnose] Incoming payload:', {
-      question: typeof question === 'string' ? question.replace(/\n/g, '\\n') : question,
-      correct_answer,
-      student_answer,
-      student_reasoning
-    });
+    const body = req.body && typeof req.body === 'object' ? req.body : {};
+    const { question, correct_answer, student_answer, student_reasoning } = body;
     const response = await sendBridgeRequest({
       action: 'diagnose',
-      question: question || '',
-      correct_answer: correct_answer || '',
-      student_answer: student_answer || '',
-      student_reasoning: student_reasoning || ''
+      question: String(question ?? ''),
+      correct_answer: String(correct_answer ?? ''),
+      student_answer: String(student_answer ?? ''),
+      student_reasoning: String(student_reasoning ?? '')
     });
 
     if (response.success) {
@@ -252,16 +248,13 @@ app.post('/api/relearn/diagnose', async (req, res) => {
 
 app.post('/api/relearn/evaluate', async (req, res) => {
   try {
-    const { session, followup_answer, followup_reasoning } = req.body;
-    console.log('[API /evaluate] Incoming follow-up submission:', {
-      followup_answer,
-      followup_reasoning
-    });
+    const body = req.body && typeof req.body === 'object' ? req.body : {};
+    const { session, followup_answer, followup_reasoning } = body;
     const response = await sendBridgeRequest({
       action: 'evaluate',
-      session: session || {},
-      followup_answer: followup_answer || '',
-      followup_reasoning: followup_reasoning || ''
+      session: session && typeof session === 'object' ? session : {},
+      followup_answer: String(followup_answer ?? ''),
+      followup_reasoning: String(followup_reasoning ?? '')
     });
 
     if (response.success) {
@@ -273,6 +266,35 @@ app.post('/api/relearn/evaluate', async (req, res) => {
     }
   } catch (err: any) {
     console.error('[API /evaluate] Error:', err);
+    res.status(500).json({ error: err.message || 'Server error' });
+  }
+});
+
+app.get('/api/relearn/learner', async (_req, res) => {
+  try {
+    const response = await sendBridgeRequest({ action: 'get_learner_state' });
+    if (response.success) {
+      res.json(response.data);
+    } else {
+      res.status(500).json({ error: response.error || 'Failed to get learner state' });
+    }
+  } catch (err: any) {
+    console.error('[API /learner] Error:', err);
+    res.status(500).json({ error: err.message || 'Server error' });
+  }
+});
+
+app.post('/api/relearn/learner/reset', async (_req, res) => {
+  try {
+    const response = await sendBridgeRequest({ action: 'reset_learner_state' });
+    if (response.success) {
+      console.log('[API /learner/reset] Learner progress reset.');
+      res.json(response.data);
+    } else {
+      res.status(500).json({ error: response.error || 'Failed to reset learner state' });
+    }
+  } catch (err: any) {
+    console.error('[API /learner/reset] Error:', err);
     res.status(500).json({ error: err.message || 'Server error' });
   }
 });

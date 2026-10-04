@@ -1,0 +1,281 @@
+{
+  "parse_status": {
+    "batch1": "ok",
+    "batch2": "ok",
+    "batch3": "ok",
+    "batch4": "ok"
+  },
+  "samples_extracted_per_batch": {
+    "batch1": 50,
+    "batch2": 50,
+    "batch3": 50,
+    "batch4": 50
+  },
+  "total_extracted": 200,
+  "original_dataset_check": "not found (collision check skipped)",
+  "duplicates": {
+    "duplicate_id": 0,
+    "duplicate_sample_id": 0,
+    "exact_duplicate_question": 1,
+    "near_duplicate": 1
+  },
+  "malformed_samples": 0,
+  "rejected_samples": 2,
+  "rejected_per_batch": {
+    "batch1": 0,
+    "batch2": 0,
+    "batch3": 1,
+    "batch4": 1
+  },
+  "rejected_by_reason": {
+    "near_duplicate": 1,
+    "exact_duplicate_question": 1
+  },
+  "rejected_detail": [
+    {
+      "id": "gen_M04_05",
+      "sample_id": "RL-GEN-020",
+      "batch": "batch3",
+      "reason": "same code/question as m04_02 (GP-0017, batch1), same misconception_id, same student_answer, reasoning similarity 0.78"
+    },
+    {
+      "id": "gen2_M04_01",
+      "sample_id": "RL-GEN2-016",
+      "batch": "batch4",
+      "reason": "question text identical (ignoring whitespace/case) to m04_b2_01 (GP-0066, batch2)"
+    }
+  ],
+  "final_clean_count": 198,
+  "clean_per_batch": {
+    "batch1": 50,
+    "batch2": 50,
+    "batch3": 49,
+    "batch4": 49
+  },
+  "distribution_by_misconception_id": {
+    "INSUFFICIENT": 20,
+    "M01": 20,
+    "M02": 20,
+    "M03": 20,
+    "M04": 18,
+    "M05": 20,
+    "M06": 20,
+    "M07": 20,
+    "M08": 20,
+    "NONE": 20
+  },
+  "distribution_by_split": {
+    "generated_pool": 198
+  },
+  "distribution_by_error_type_after_normalization": {
+    "careless": 6,
+    "conceptual": 158,
+    "correct": 8,
+    "other": 15,
+    "syntax_error": 4,
+    "trace_error": 4,
+    "typo": 3
+  },
+  "error_type_distribution_before_normalization_all_extracted": {
+    "arithmetic": 2,
+    "careless": 4,
+    "conceptual": 160,
+    "correct": 5,
+    "no_evidence": 8,
+    "none": 3,
+    "other": 7,
+    "syntax": 2,
+    "syntax_error": 2,
+    "trace_error": 4,
+    "typo": 3
+  },
+  "error_type_normalizations_applied": {
+    "count": 15,
+    "details": [
+      {
+        "id": "gen_NONE_01",
+        "sample_id": "RL-GEN-041",
+        "batch": "batch3",
+        "field": "error_type",
+        "from": "none",
+        "to": "correct"
+      },
+      {
+        "id": "gen_NONE_02",
+        "sample_id": "RL-GEN-042",
+        "batch": "batch3",
+        "field": "error_type",
+        "from": "arithmetic",
+        "to": "careless"
+      },
+      {
+        "id": "gen_NONE_04",
+        "sample_id": "RL-GEN-044",
+        "batch": "batch3",
+        "field": "error_type",
+        "from": "syntax",
+        "to": "syntax_error"
+      },
+      {
+        "id": "gen_INS_01",
+        "sample_id": "RL-GEN-046",
+        "batch": "batch3",
+        "field": "error_type",
+        "from": "no_evidence",
+        "to": "other"
+      },
+      {
+        "id": "gen_INS_02",
+        "sample_id": "RL-GEN-047",
+        "batch": "batch3",
+        "field": "error_type",
+        "from": "no_evidence",
+        "to": "other"
+      },
+      {
+        "id": "gen_INS_03",
+        "sample_id": "RL-GEN-048",
+        "batch": "batch3",
+        "field": "error_type",
+        "from": "no_evidence",
+        "to": "other"
+      },
+      {
+        "id": "gen_INS_04",
+        "sample_id": "RL-GEN-049",
+        "batch": "batch3",
+        "field": "error_type",
+        "from": "no_evidence",
+        "to": "other"
+      },
+      {
+        "id": "gen2_NONE_01",
+        "sample_id": "RL-GEN2-041",
+        "batch": "batch4",
+        "field": "error_type",
+        "from": "none",
+        "to": "correct"
+      },
+      {
+        "id": "gen2_NONE_02",
+        "sample_id": "RL-GEN2-042",
+        "batch": "batch4",
+        "field": "error_type",
+        "from": "arithmetic",
+        "to": "careless"
+      },
+      {
+        "id": "gen2_NONE_03",
+        "sample_id": "RL-GEN2-043",
+        "batch": "batch4",
+        "field": "error_type",
+        "from": "syntax",
+        "to": "syntax_error"
+      },
+      {
+        "id": "gen2_NONE_05",
+        "sample_id": "RL-GEN2-045",
+        "batch": "batch4",
+        "field": "error_type",
+        "from": "none",
+        "to": "correct"
+      },
+      {
+        "id": "gen2_INS_01",
+        "sample_id": "RL-GEN2-046",
+        "batch": "batch4",
+        "field": "error_type",
+        "from": "no_evidence",
+        "to": "other"
+      },
+      {
+        "id": "gen2_INS_02",
+        "sample_id": "RL-GEN2-047",
+        "batch": "batch4",
+        "field": "error_type",
+        "from": "no_evidence",
+        "to": "other"
+      },
+      {
+        "id": "gen2_INS_04",
+        "sample_id": "RL-GEN2-049",
+        "batch": "batch4",
+        "field": "error_type",
+        "from": "no_evidence",
+        "to": "other"
+      },
+      {
+        "id": "gen2_INS_05",
+        "sample_id": "RL-GEN2-050",
+        "batch": "batch4",
+        "field": "error_type",
+        "from": "no_evidence",
+        "to": "other"
+      }
+    ]
+  },
+  "question_format_values_observed_not_changed": {
+    "complete_code": 2,
+    "debug": 1,
+    "fill_in_blank": 1,
+    "multiple_choice": 4,
+    "predict_behavior": 19,
+    "predict_output": 144,
+    "short_answer": 5,
+    "trace": 5,
+    "trace_values": 12,
+    "true_false": 4,
+    "write_code": 3
+  },
+  "near_duplicate_warnings_kept": {
+    "count": 4,
+    "details": [
+      {
+        "kept_id": "gen_M02_01",
+        "kept_sample_id": "RL-GEN-006",
+        "batch": "batch3",
+        "similar_to_id": "m02_02",
+        "similar_to_sample_id": "GP-0007",
+        "same_misconception_id": true,
+        "same_student_answer": true,
+        "reasoning_similarity": 0.2,
+        "note": "same underlying code, different student reasoning/label/answer; KEPT"
+      },
+      {
+        "kept_id": "gen_M08_03",
+        "kept_sample_id": "RL-GEN-038",
+        "batch": "batch3",
+        "similar_to_id": "insuf_05",
+        "similar_to_sample_id": "GP-0050",
+        "same_misconception_id": false,
+        "same_student_answer": true,
+        "reasoning_similarity": 0.73,
+        "note": "same underlying code, different student reasoning/label/answer; KEPT"
+      },
+      {
+        "kept_id": "gen_NONE_05",
+        "kept_sample_id": "RL-GEN-045",
+        "batch": "batch3",
+        "similar_to_id": "insuf_02",
+        "similar_to_sample_id": "GP-0047",
+        "same_misconception_id": false,
+        "same_student_answer": false,
+        "reasoning_similarity": 0.18,
+        "note": "same underlying code, different student reasoning/label/answer; KEPT"
+      },
+      {
+        "kept_id": "gen2_M02_05",
+        "kept_sample_id": "RL-GEN2-010",
+        "batch": "batch4",
+        "similar_to_id": "m02_01",
+        "similar_to_sample_id": "GP-0006",
+        "same_misconception_id": true,
+        "same_student_answer": false,
+        "reasoning_similarity": 0.29,
+        "note": "same underlying code, different student reasoning/label/answer; KEPT"
+      }
+    ]
+  },
+  "consistency_warnings": [],
+  "content_integrity": "clean samples are identical to the extracted samples except error_type normalisation; verified by assertion"
+}
